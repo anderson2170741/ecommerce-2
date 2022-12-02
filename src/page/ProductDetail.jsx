@@ -67,15 +67,21 @@ const ProductDetail = () => {
 
                 {/*description of product*/}
                 <Col lg={3}>
-                    <h1>{productsId?.title}</h1>
-                    <p>{productsId?.description}</p>
+                    <Card.Subtitle>
+                        <h1>{productsId?.title}</h1>
+                    </Card.Subtitle>
+                    <Card.Text>
+                        <p>{productsId?.description}</p>
+                    </Card.Text>
                     <Card style={{ borderStyle: "none" }}>
                         <Row>
                             <Col>
                                 <Card.Text>
                                     <p className="text-muted">Price</p>
-                                    <h4>$ {productsId?.price}</h4>
                                 </Card.Text>
+                                <Card.Subtitle>
+                                    <h4>$ {productsId?.price}</h4>
+                                </Card.Subtitle>
                             </Col>
 
                             <Col>
@@ -91,9 +97,9 @@ const ProductDetail = () => {
 
                 {/*relate article*/}
 
-                <Card.Text>
+                <Card.Title>
                     <h3>Related Article </h3>
-                </Card.Text>
+                </Card.Title>
                 <Row xs={1} md={2} lg={3} className="g-4">
 
                     {relatedProducts.map(productsItem => (
@@ -110,8 +116,10 @@ const ProductDetail = () => {
                                         <Card.Title>{productsItem?.title}</Card.Title>
                                         <Card.Text>
                                             <p className="text-muted">Price</p>
-                                            <h4>$ {productsItem?.price}</h4>
                                         </Card.Text>
+                                        <Card.Subtitle>
+                                            <h4>$ {productsItem?.price}</h4>
+                                        </Card.Subtitle>
                                     </Card.Body>
                                 </Link>
                             </Card>
