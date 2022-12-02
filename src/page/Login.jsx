@@ -1,13 +1,29 @@
+import axios from 'axios';
 import React from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
 
+    const navigate = useNavigate();
+
     const submit = data => {
-        console.log(data);
+        axios.post('https://e-commerce-api.academlo.tech/api/v1/users/login', data)
+            .then(res => {
+                navigate("/");
+                console.log(res);
+                localStorage.setItem("token", res.data.data.token);
+            })
+            .catch(error => {
+                if (error.response?.status === 401) {// 404
+                    alert("Credenciales incorrectas");
+                } else {
+                    console.log(error.response?.data); //status
+                }
+            })
     }
 
 
