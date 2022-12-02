@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { getProductsThunk } from "../../../../ecommerce/src/store/slices/products.slice";
-
+import { getProductsThunk } from "../store/slices/products.slice";
 
 const ProductDetail = () => {
 
