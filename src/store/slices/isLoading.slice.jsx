@@ -2,7 +2,7 @@ import { createSlice} from '@reduxjs/toolkit'
 
 export const isLoandingSlice = createSlice({
     name: 'isLoading',
-    initialState: true,
+    initialState: false, //Camabio
     reducers: {
         setIsLoading: (state, action) => {
             return action.payload
